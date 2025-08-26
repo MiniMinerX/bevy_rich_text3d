@@ -4,26 +4,14 @@ use std::sync::{
 };
 
 use bevy::{
-    app::{App, Startup, Update},
-    asset::{AssetId, AssetServer, Assets},
-    color::Color,
-    core_pipeline::core_2d::Camera2d,
-    ecs::{
+    app::{App, Startup, Update}, asset::{AssetId, AssetServer, Assets}, camera::Camera2d, color::Color, ecs::{
         component::Component,
         entity::Entity,
         query::With,
         system::{Local, Query},
-    },
-    image::Image,
-    math::{Vec2, Vec3},
-    pbr::AmbientLight,
-    prelude::{
+    }, image::Image, light::AmbientLight, math::{Vec2, Vec3}, mesh::Mesh2d, prelude::{
         Commands, Mesh, OrthographicProjection, Plane3d, Projection, Res, ResMut, Transform,
-    },
-    render::mesh::Mesh2d,
-    sprite::{AlphaMode2d, ColorMaterial, MeshMaterial2d, Sprite},
-    time::{Time, Virtual},
-    DefaultPlugins,
+    }, sprite::Sprite, sprite_render::{AlphaMode2d, ColorMaterial, MeshMaterial2d}, time::{Time, Virtual}, DefaultPlugins
 };
 use bevy_rich_text3d::{
     DrawStyle, LoadFonts, Text3d, Text3dPlugin, Text3dStyling, TextAtlas,
@@ -117,7 +105,7 @@ pub fn main() {
              server: Res<AssetServer>,
              mut standard_materials: ResMut<Assets<ColorMaterial>>| {
                 let mat = standard_materials.add(ColorMaterial {
-                    texture: Some(TextAtlas::DEFAULT_IMAGE.clone_weak()),
+                    texture: Some(TextAtlas::DEFAULT_IMAGE.clone()),
                     alpha_mode: AlphaMode2d::Blend,
                     ..Default::default()
                 });

@@ -1,15 +1,8 @@
 use bevy::{
-    app::{App, Startup, Update},
-    asset::Assets,
-    color::{Color, Srgba},
-    diagnostic::{DiagnosticsStore, FrameTimeDiagnosticsPlugin},
-    math::Vec3,
-    pbr::{AmbientLight, MeshMaterial3d, StandardMaterial},
-    prelude::{
+    app::{App, Startup, Update}, asset::Assets, color::{Color, Srgba}, diagnostic::{DiagnosticsStore, FrameTimeDiagnosticsPlugin}, light::AmbientLight, math::Vec3, pbr::{ MeshMaterial3d, StandardMaterial}, prelude::{
         AlphaMode, Camera3d, Commands, Component, Mesh3d, OrthographicProjection, Projection,
         Query, Res, ResMut, Transform, With,
-    },
-    DefaultPlugins,
+    }, DefaultPlugins
 };
 use bevy_rich_text3d::{
     FetchedTextSegment, ParseError, Text3d, Text3dBounds, Text3dPlugin, Text3dSegment,

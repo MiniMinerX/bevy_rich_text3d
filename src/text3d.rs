@@ -1,7 +1,5 @@
 use bevy::ecs::{
-    component::{Component, HookContext},
-    entity::Entity,
-    world::{DeferredWorld, Mut},
+    component::Component, entity::Entity, lifecycle::HookContext, world::{DeferredWorld, Mut}
 };
 #[cfg(feature = "reflect")]
 use bevy::{ecs::reflect::ReflectComponent, reflect::Reflect};
