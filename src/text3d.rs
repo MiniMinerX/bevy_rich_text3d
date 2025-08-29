@@ -11,7 +11,7 @@ use crate::{
 /// A rich text component.
 ///
 /// Requires [`Text3dStyling`], [`Text3dBounds`], [`TextAtlasHandle`], [`Text3dDimensionOut`].
-#[derive(Debug, Component)]
+#[derive(Debug, Component, Default)]
 #[require(Text3dDimensionOut, Text3dBounds, TextAtlasHandle, Text3dStyling)]
 #[component(on_remove = text_3d_on_remove)]
 #[cfg_attr(feature = "reflect", derive(Reflect))]
