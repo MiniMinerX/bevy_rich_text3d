@@ -58,7 +58,13 @@ impl FetchedTextSegment {
 #[cfg_attr(feature = "reflect", reflect(Component))]
 pub struct TextFetch {
     entity: Entity,
+    #[cfg_attr(feature = "reflect", reflect(ignore, default = "default_fetch_closure"))]
     fetch: Box<dyn FnMut(EntityRef) -> Option<String> + Send + Sync>,
+}
+
+#[cfg(feature = "reflect")]
+fn default_fetch_closure() -> Box<dyn FnMut(EntityRef) -> Option<String> + Send + Sync> {
+    Box::new(|_| None)
 }
 
 impl TextFetch {

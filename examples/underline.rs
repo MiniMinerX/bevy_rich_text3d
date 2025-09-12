@@ -3,22 +3,12 @@
 use std::num::NonZero;
 
 use bevy::{
-    app::{App, Startup, Update},
-    asset::Assets,
-    color::{Color, Srgba},
-    core_pipeline::core_2d::Camera2d,
-    ecs::{hierarchy::ChildOf, query::Changed, system::Query},
-    math::{Vec2, Vec3},
-    pbr::AmbientLight,
-    prelude::{Commands, OrthographicProjection, Projection, ResMut, Transform},
-    render::mesh::Mesh2d,
-    sprite::{AlphaMode2d, ColorMaterial, MeshMaterial2d},
-    DefaultPlugins,
+    app::{App, Startup, Update}, asset::Assets, camera::Camera2d, color::{Color, Srgba}, ecs::{hierarchy::ChildOf, query::Changed, system::Query}, light::AmbientLight, math::{Vec2, Vec3}, mesh::Mesh2d, prelude::{Commands, OrthographicProjection, Projection, ResMut, Transform}, sprite_render::{AlphaMode2d, ColorMaterial, MeshMaterial2d}, DefaultPlugins
 };
-use bevy_rectray::{
-    layout::{Container, LayoutObject, ParagraphLayout, Rev, X, Y},
-    Dimension, RectrayFrame, RectrayPlugin, RectrayWindow, Transform2D,
-};
+//use bevy_rectray::{
+//    layout::{Container, LayoutObject, ParagraphLayout, Rev, X, Y},
+//    Dimension, RectrayFrame, RectrayPlugin, RectrayWindow, Transform2D,
+//};
 use bevy_rich_text3d::{
     LoadFonts, Text3d, Text3dDimensionOut, Text3dPlugin, Text3dStyling, TextAtlas,
 };
@@ -58,7 +48,7 @@ fn rectray_sync(
 
 fn setup(mut commands: Commands, mut standard_materials: ResMut<Assets<ColorMaterial>>) {
     let mat = standard_materials.add(ColorMaterial {
-        texture: Some(TextAtlas::DEFAULT_IMAGE.clone_weak()),
+        texture: Some(TextAtlas::DEFAULT_IMAGE.clone()),
         alpha_mode: AlphaMode2d::Blend,
         ..Default::default()
     });

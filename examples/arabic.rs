@@ -5,16 +5,10 @@
 //! Should fail eventually if reached wgpu's texture limit.
 
 use bevy::{
-    app::{App, Startup},
-    asset::{AssetServer, Assets},
-    color::{Color, Srgba},
-    math::{Vec2, Vec3},
-    pbr::{AmbientLight, MeshMaterial3d, StandardMaterial},
-    prelude::{
+    app::{App, Startup}, asset::{AssetServer, Assets}, color::{Color, Srgba}, light::AmbientLight, math::{Vec2, Vec3}, pbr::{MeshMaterial3d, StandardMaterial}, prelude::{
         AlphaMode, Camera3d, Commands, Mesh, Mesh3d, OrthographicProjection, Plane3d, Projection,
         Res, ResMut, Transform,
-    },
-    DefaultPlugins,
+    }, DefaultPlugins
 };
 use bevy_rich_text3d::{Text3d, Text3dBounds, Text3dPlugin, Text3dStyling, TextAtlas};
 
@@ -42,7 +36,7 @@ fn setup(
     mut standard_materials: ResMut<Assets<StandardMaterial>>,
 ) {
     let mat = standard_materials.add(StandardMaterial {
-        base_color_texture: Some(TextAtlas::DEFAULT_IMAGE.clone_weak()),
+        base_color_texture: Some(TextAtlas::DEFAULT_IMAGE.clone()),
         alpha_mode: AlphaMode::Blend,
         unlit: true,
         ..Default::default()

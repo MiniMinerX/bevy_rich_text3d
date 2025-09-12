@@ -6,8 +6,7 @@ use bevy::{
         world::{Mut, Ref},
     },
     image::Image,
-    math::{FloatOrd, IVec2, Rect, Vec2, Vec3, Vec4},
-    render::mesh::{Indices, Mesh, Mesh2d, Mesh3d, PrimitiveTopology, VertexAttributeValues},
+    math::{FloatOrd, IVec2, Rect, Vec2, Vec3, Vec4}, mesh::{Indices, Mesh, Mesh2d, Mesh3d, PrimitiveTopology, VertexAttributeValues},
 };
 use cosmic_text::{
     ttf_parser::{Face, GlyphId},

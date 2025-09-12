@@ -33,7 +33,7 @@ use bevy::{
         world::Ref,
     },
     image::Image,
-    transform::TransformSystem,
+    transform::TransformSystems,
     window::{PrimaryWindow, Window},
 };
 
@@ -165,11 +165,11 @@ impl Plugin for Text3dPlugin {
         );
         app.configure_sets(
             PostUpdate,
-            Text3dSet.before(TransformSystem::TransformPropagate),
+            Text3dSet.before(TransformSystems::Propagate),
         );
         app.configure_sets(PostUpdate, TouchMaterialSet.in_set(Text3dSet));
         #[cfg(feature = "2d")]
-        app.add_plugins(TouchTextMaterial2dPlugin::<bevy::sprite::ColorMaterial>::default());
+        app.add_plugins(TouchTextMaterial2dPlugin::<bevy::sprite_render::ColorMaterial>::default());
         #[cfg(feature = "3d")]
         app.add_plugins(TouchTextMaterial3dPlugin::<bevy::pbr::StandardMaterial>::default());
 

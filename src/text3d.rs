@@ -1,7 +1,5 @@
 use bevy::ecs::{
-    component::{Component, HookContext},
-    entity::Entity,
-    world::{DeferredWorld, Mut},
+    component::Component, entity::Entity, lifecycle::HookContext, world::{DeferredWorld, Mut}
 };
 #[cfg(feature = "reflect")]
 use bevy::{ecs::reflect::ReflectComponent, reflect::Reflect};
@@ -13,7 +11,7 @@ use crate::{
 /// A rich text component.
 ///
 /// Requires [`Text3dStyling`], [`Text3dBounds`], [`TextAtlasHandle`], [`Text3dDimensionOut`].
-#[derive(Debug, Component)]
+#[derive(Debug, Component, Default)]
 #[require(Text3dDimensionOut, Text3dBounds, TextAtlasHandle, Text3dStyling)]
 #[component(on_remove = text_3d_on_remove)]
 #[cfg_attr(feature = "reflect", derive(Reflect))]

@@ -1,5 +1,5 @@
 use bevy::{
-    asset::{Asset, Assets, Handle, RenderAssetUsages},
+    asset::{uuid_handle, Asset, Assets, Handle, RenderAssetUsages},
     ecs::component::Component,
     image::Image,
     math::{IVec2, Rect, Vec2},
@@ -30,7 +30,7 @@ impl TextAtlas {
     /// The image used by [`TextAtlas::default()`].
     #[allow(deprecated)]
     pub const DEFAULT_IMAGE: Handle<Image> =
-        Handle::weak_from_u128(0x9a5c50eb057602509c7836bb327807e1);
+        uuid_handle!("9a5c50eb-0576-0250-9c78-36bb327807e1");
 
     /// Create a new empty [`TextAtlas`].
     ///
