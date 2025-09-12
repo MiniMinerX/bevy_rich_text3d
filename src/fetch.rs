@@ -62,6 +62,11 @@ pub struct TextFetch {
     fetch: Box<dyn FnMut(EntityRef) -> Option<String> + Send + Sync>,
 }
 
+#[cfg(feature = "reflect")]
+fn default_fetch_closure() -> Box<dyn FnMut(EntityRef) -> Option<String> + Send + Sync> {
+    Box::new(|_| None)
+}
+
 impl TextFetch {
     /// Create a text fetcher that fetches a string from a single component if the component changes.
     pub fn fetch_component<C: Component>(
